@@ -4,7 +4,12 @@
     "goal": "install"
   },
 "deploy": {
-      "container": "TOMCAT8"
+      "container": "TOMCAT8",
+war[
+{
+"file" : "MajorProject.war"
+}
+]
 
 }
 }
