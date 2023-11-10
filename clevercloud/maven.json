@@ -4,6 +4,6 @@
     "goal": "install"
   },
   "deploy": {
-    "goal": "default"
+    "goal": "install"
   }
 }
