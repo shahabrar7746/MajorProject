@@ -43,7 +43,17 @@
 </dependency>
 <!-- https://mvnrepository.com/artifact/pentaho-library/libxml -->
 <!-- https://mvnrepository.com/artifact/org.pentaho.reporting.library/libxml -->
-
+ <dependency>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>1.14.3</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.nokogiri</groupId>
+                <artifactId>nokogiri</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
 
   </dependencies>
   <build>
