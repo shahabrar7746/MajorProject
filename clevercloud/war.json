@@ -5,10 +5,6 @@
   },
 "deploy": {
       "container": "TOMCAT8",
-"war": [
-         {
-            "file": "MajorProject.war"
-        }
-      ]
+
 }
 }
