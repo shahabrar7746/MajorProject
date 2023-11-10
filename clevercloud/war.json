@@ -5,7 +5,7 @@
   },
 "deploy": {
       "container": "TOMCAT8",
-war[
+"war" : [
 {
 "file" : "MajorProject.war"
 }
