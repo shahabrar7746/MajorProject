@@ -54,7 +54,7 @@
         </plugin>
    
 	  </plugins>
-	      <defaultGoal>install</defaultGoal>
+	   
 	       <sourceDirectory>src</sourceDirectory>
 
     <finalName>MajorProject</finalName>
