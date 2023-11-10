@@ -7,7 +7,8 @@
       "container": "TOMCAT8",
 "war" : [
 {
-"file" : "MajorProject.war"
+"file" : "MajorProject.war",
+ "context": "/app1"
 }
 ]
 
