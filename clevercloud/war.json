@@ -8,7 +8,7 @@
 "war" : [
 {
 "file" : "MajorProject.war",
- "context": "/app1"
+ "context": "/MajorProject/index.html"
 }
 ]
 
