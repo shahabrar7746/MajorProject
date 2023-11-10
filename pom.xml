@@ -41,6 +41,8 @@
     <artifactId>mail</artifactId>
     <version>1.4</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/pentaho-library/libxml -->
+<!-- https://mvnrepository.com/artifact/org.pentaho.reporting.library/libxml -->
 
 
   </dependencies>
@@ -76,7 +78,9 @@
        
    
   <properties>
-     <maven.compiler.source>1.8</maven.compiler.source>
-     <maven.compiler.target>1.8</maven.compiler.target>
+     <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+  
 </properties>
 </project>
