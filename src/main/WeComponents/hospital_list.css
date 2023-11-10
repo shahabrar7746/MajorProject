@@ -1,0 +1,119 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 2000px;
+}
+.container-header{
+    width: 100%;
+    display: flex;
+    /* background-color: #b5b5a9; */
+    height: 70px;
+}
+.logo{
+    position: absolute;
+    top: 7px;
+    left: 14px;
+    /* color: white; */
+    /* display: block; */
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Dela Gothic One', cursive;
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Tektur', cursive;
+    font-size: 2.5rem;
+}
+/* searchbar */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+    padding: 0px;
+    border-radius: 7px;
+    max-width: 600px;
+    width: 100%;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid black;
+  border-radius: 26px;
+  outline: none;
+}
+button{
+    background-color: #ffffff;
+    color: white;
+    padding: 4px 6px;
+    /* margin: 2px 2px; */
+    border: none;
+    cursor: pointer;
+    border-radius: 0px;
+    margin-left: 0px;
+}
+
+button:hover {
+    background-color: #cbcbcb;
+}
+
+@media screen and (max-width: 600px) {
+    form {
+        flex-direction: column;
+        /* align-items; */
+    }
+}
+li{
+    list-style: none;
+}
+.navbar{
+    padding: 10px;
+    /* background-color: yellow; */
+    display: flex;
+    gap: 63px;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}
+.sec{
+    padding: 10px 5%;
+}
+.sec2{
+    padding: 1px 5%;
+}
+.categories{
+    padding: 28px 166px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    gap: 92px;
+}
+.categories .card{
+    width: 149px;
+    height: 139px;
+    background: whitesmoke;
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); */
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 20px;   
+}
+.categories .card img{
+    padding-top: 17px;
+}
+.desc{
+    font-weight: bold;
+    padding-top: 17px;
+}
+.card:hover{
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
