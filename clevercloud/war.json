@@ -9,7 +9,7 @@
 {
 "file" : "MajorProject.war",
 "context" : "/MajorProject",
- "checkMe": "index.html"
+ "checkMe": "/MajorProject/index.html"
 }
 ]
 
