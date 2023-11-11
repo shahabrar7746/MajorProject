@@ -8,7 +8,7 @@
 "war" : [
 {
 "file" : "MajorProject.war",
- "checkMe": "/MajorProject/index.html"
+ "checkMe": "index.html"
 }
 ]
 
