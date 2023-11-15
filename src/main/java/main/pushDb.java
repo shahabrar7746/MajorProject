@@ -25,4 +25,28 @@ public class pushDb {
 		
 		 return true;
 	 }
+	 public boolean registerSeller(String fullName,String businessName,String mail,String phNumber,String shopNumber,String Area,String pincode,String state,String serviceType, String password) throws ClassNotFoundException, SQLException {
+		 if(!new common().isNew(mail, "sellerDetails")) {
+			 return false;
+		 }
+			 Connection con = common.connect();
+String query = "insert into sellerDetails(sellerId,pinCOde,sellerName,phoneNumber,serviceName,password,state,shopNumber,area,registrationDate,serviceType,email) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+PreparedStatement ps = con.prepareStatement(query);
+ps.setString(1, common.generateSellerId());
+ps.setString(2, pincode);
+ps.setString(3, fullName);
+ps.setString(4, phNumber);
+ps.setString(5, businessName);
+ps.setString(6, password);
+ps.setString(7, state);
+ps.setString(8, shopNumber);
+ps.setString(9, Area);
+ps.setString(10, common.date());
+ps.setString(11, serviceType);
+ps.setString(12, mail);
+			 ps.execute();
+			 ps.close();
+		 
+		 return true;
+	 }
 }

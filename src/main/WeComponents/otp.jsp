@@ -18,7 +18,12 @@
         if(mail == null){
         	out.print("null");
         }else{
-        out.print(mail.substring(0,3) + "*********gmail.com");
+        	String newMail = mail.substring(0,2);
+        	for(int i =0;i<mail.length()-11;i++){
+        		newMail = newMail + "*";
+        	}
+        	newMail = newMail + "@gmail.com";
+        out.print(newMail);
         }
         %></h4>
                <%
