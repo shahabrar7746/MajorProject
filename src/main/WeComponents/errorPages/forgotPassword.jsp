@@ -9,21 +9,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Forgot Password | 24Local</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./Signup/assets/css/forgot_password.css">
-    <script src="./Signup/assets/js/script.js" defer></script>
+    <link rel="shortcut icon" href="/MajorProject/assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/MajorProject/Signup/assets/css/forgot_password.css">
+    <script src="/MajorProject/Signup/assets/js/script.js" defer></script>
 </head>
 <body>
     <main class="card-container slideUp-animation">
         <div class="image-container">
             <h1 class="company">24LOCAL </h1>
-            <img src="./assets/images/signUp.svg" class="illustration" alt="">
+            <img src="/MajorProject/assets/images/signUp.svg" class="illustration" alt="">
             <p class="quote">Login In today to get exciting offers..!</p>
             <a href="#btm" class="mobile-btm-nav">
-                <img src="./assets/images/dbl-arrow.png" alt="">
+                <img src="/MajorProject/assets/images/dbl-arrow.png" alt="">
             </a>
         </div>
-        <form action= "updatePassword" method= "post"
+        <form action= "/MajorProject/updatePassword" method="get ">
             <div class="form-container slideRight-animation">
                 <div class="input-container">
                     <h1 class="form-header"> Reset Password </h1>
@@ -43,6 +43,7 @@
                         <div class="error"></div>
                     </div>
                      -->
+                     <h4 style = "color : red">*email does not exists*</h4>
 
                     <div id="btm">
                         <input type = submit class = "submit-btn" value = "Submit">

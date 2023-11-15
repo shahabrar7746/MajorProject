@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ import main.common;
 /**
  * Servlet implementation class updatePassword
  */
+@WebServlet("/updatePassword")
 public class updatePassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,8 +35,33 @@ public class updatePassword extends HttpServlet {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("consumerMail");
 		common fun = null;
+		fun = new common();
+		if(email == null) {
+			email = request.getParameter("sellerMail");
+			
+			try {
+				if(fun.isNew(email, "sellerDetails")) {
+				response.sendRedirect("errorPages/forgotPassword.jsp");
+				}else {
+					String otp = fun.generateOTP();
+					String sellerName = fun.sellerName;
+					Mail mail = new Mail();
+					mail.sendMail(email, otp, sellerName);
+					request.setAttribute("sellerMail", email);
+					
+					request.setAttribute("otp", mail.getOtp());
+					RequestDispatcher dispatch = request.getRequestDispatcher("otp.jsp");
+					dispatch.forward(request, response);
+				}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}else {
+		
 		try {
-			fun = new common();
+			
 			if(fun.isNew(email)) {
 			response.sendRedirect(".//errorPages//emailForPasswordChange.jsp");
 			}else {
@@ -43,6 +70,8 @@ public class updatePassword extends HttpServlet {
 				Mail mail = new Mail();
 				mail.sendMail(email, otp, consumerName);
 				request.setAttribute("mail", mail.getMail());
+				
+
 				request.setAttribute("otp", mail.getOtp());
 				RequestDispatcher dispatch = request.getRequestDispatcher("otp.jsp");
 				dispatch.forward(request, response);
@@ -51,6 +80,7 @@ public class updatePassword extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
 	}
 
 	/**

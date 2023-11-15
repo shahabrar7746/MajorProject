@@ -43,23 +43,36 @@ public class changePassword extends HttpServlet {
 
 		String password = request.getParameter("password");
 		String consumerId = (String) request.getSession().getAttribute("mail");
-	changePasswords cp = new changePasswords();
-	try {
-		cp.changePasswordConsumer(password, consumerId);
-	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	login login = new login();
-	try {
-		login.login("dummy", password, consumerId);
-	} catch (ClassNotFoundException | SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	request.setAttribute("consumerId", login.getConsumerId());
-	RequestDispatcher dispatch = request.getRequestDispatcher("afterLogin.jsp");
-	dispatch.forward(request, response);	
-	}
+		if(consumerId == null) {
+            String sellerId = 	(String) request.getSession().getAttribute("sellerId");
+			changePasswords cp = new changePasswords();
+try {
+	cp.changePasswordSeller(password, sellerId);
+} catch (ClassNotFoundException | SQLException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+//Make a login lading page for sellers and dispatch req and res from here.
+		}else{
+			changePasswords cp = new changePasswords();
+			try {
+				cp.changePasswordConsumer(password, consumerId);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			login login = new login();
+			try {
+				login.login("dummy", password, consumerId);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.setAttribute("consumerId", login.getConsumerId());
+			RequestDispatcher dispatch = request.getRequestDispatcher("afterLogin.jsp");
+			dispatch.forward(request, response);	
+		
+		}
+		}
 
 }

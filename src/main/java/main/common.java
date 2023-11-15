@@ -64,7 +64,7 @@ public static String date() {
 }
 public  String consumerName = null;
 public boolean isNew(String email) throws SQLException, ClassNotFoundException {
-	String query = "Select consumerId,name  consumerDetails  from  where email = ?";
+	String query = "Select consumerId,name    from  consumerDetails where email = ?";
 	PreparedStatement ps = common.connect().prepareStatement(query);
 	ps.setString(1, email);
 	ResultSet rs = ps.executeQuery();
@@ -79,6 +79,7 @@ public boolean isNew(String email) throws SQLException, ClassNotFoundException {
 	return ans == null;
 	
 }
+
 public String sellerName = null;
 public boolean isNew(String email,String table) throws SQLException, ClassNotFoundException {
 	String query = "Select sellerId,sellerName  from " + table + "  where email = ?";
@@ -95,6 +96,18 @@ public boolean isNew(String email,String table) throws SQLException, ClassNotFou
 	
 	return ans == null;
 	
+}
+public String getSellerId(String mail) throws ClassNotFoundException, SQLException {
+	Connection con = connect();
+	String sellerId = null;
+	String query = "select sellerId from sellerDetails where email = ?;";
+	PreparedStatement ps = con.prepareStatement(query);
+	ps.setString(1, mail);
+	ResultSet rs = ps.executeQuery();
+	while(rs.next()) {
+		sellerId = rs.getString("sellerId");
+	}
+	return sellerId;
 }
 public String getConsumerId(String mail) throws ClassNotFoundException, SQLException {
 	String id = null;

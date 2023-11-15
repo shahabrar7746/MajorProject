@@ -13,5 +13,13 @@ public class changePasswords {
 		ps.setString(2, mail);
 		ps.execute();
 	}
+	public void changePasswordSeller(String password,String sellerId) throws ClassNotFoundException, SQLException {
+		Connection con = common.connect();
+		String query = "update sellerDetails set password = ? where sellerId = ?";
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setString(1, password);
+		ps.setString(2, sellerId);
+		ps.execute();
+	}
 
 }

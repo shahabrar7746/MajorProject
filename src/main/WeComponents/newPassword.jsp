@@ -23,8 +23,15 @@
             <input type="submit" name="submit" value="login now" class="form-btn">
                        
                      <%
+                     String consumerId = (String)request.getAttribute("mail");
+                 
+                     if(consumerId == null){
+                    	 session.setAttribute("sellerId",request.getAttribute("sellerId"));
+                         session.setAttribute("mail", null);
+
+                     }else{
                      session.setAttribute("mail", request.getAttribute("mail"));
-                     
+                     }
                      %>
             
         </form>
