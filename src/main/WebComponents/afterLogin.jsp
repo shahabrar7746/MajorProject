@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>24Local</title>
-  <link rel="stylesheet" href="style1.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href=".//css//style.css">
+  <link rel="stylesheet" href="assets/css/afterlogin.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,29 +21,45 @@
 <body>
   <!-- header -->
   <div class="container-header">
-    <div class="logo">
+    <div onclick="window.location.href='/index.html';"class="logo">
       24LOCAL
     </div>
     <div class="search-container">
       <div class="search-icon">
-        <img src="./images/search.svg" alt="">
+        <img src="/images/search.svg" alt="">
         <i class="fa fa-search"></i>
       </div>
       <input type="text" class="search-input" placeholder="Search...">
     </div>
     <!--login-->
-    <form>    
-      <button formaction="loginAs.html" class="login">Login</button>
-   </form> 
+    <img src="assets/images/user.png " class="user-pic" onclick="toggleMenu()">
+    <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+            <div class="user-info">
+                <!-- <img src="assets/images/user.png" alt=""> -->
+            </div>
+            <a href="" class="sub-menu-link">
+                <img src="assets/images/service.png">
+                <p>Service</p>
+                <!-- <span>></span> -->
+            </a>
+
+            <a href="" class="sub-menu-link">
+                <img src="assets/images/location.png">
+                <p>Change Location</p>
+                <!-- <span>></span> -->
+            </a>
+        </div>
+    </div>
   </div>
 
   
   <div class="navbar">
     <li><a href="">Home</a></li>
     <li><a href="">Deals</a></li>
-    <li><a href="./Hospital-Categories/hospital_list.html">Hospitals</a></li>
+    <li><a href="hospital_list.html">Hospitals</a></li>
     <li><a href="flight.html">Flight Booking</a></li>
-    <li><a href="./School/school.html">School</a></li>
+    <li><a href="">Most Popular</a></li>
     <li><a href="">About Us</a></li>
   </div>
   
@@ -95,7 +110,7 @@
         <div class="size">
           <div class="carousel-item active">
             <div class="cards-wrapper">
-              <div class="card" style="width: 31rem;">
+              <div  class="card" style="width: 31rem;">
                 <img src="./images/apollo.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Apollo Hospital Kharghar</h5>
@@ -217,6 +232,7 @@
               </div>
               <div class="card" style="width: 31rem;">
                 <img src="https://lh3.googleusercontent.com/p/AF1QipMPmCV7Taeb9P7D9CRPwyswNj0liX_uxSGY4_CR=s680-w680-h510" class="card-img-top" alt="...">
+                <div class="card-body">
                   <h5 class="card-title">A. C. Patil College of Engineering, Kharghar</h5>
                   <!-- <p class="card-text">Price</p> -->
                   <a href="#" class="btn btn-primary">Call us</a>
@@ -369,7 +385,7 @@
   <!-- footer -->
    <footer>
     <div class="foot-panel1">
-        back to top
+      <li><a href="index.html">Back on top</a></li>
     </div>
 
     <div class="foot-panel2" >
@@ -382,7 +398,7 @@
 
        <ul>
            <p> HELP </p>
-           <a> Payment option</a>
+           <li><a href="./PaymentGateway/payment.html">Payment Option</a></li>
            <a> Cancellation & Return </a>
            <a> Report</a>
        </ul>
@@ -416,7 +432,17 @@ session.setAttribute("consumerId", request.getAttribute("consumerId"));
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-          crossorigin="anonymous"></script>
+          crossorigin="anonymous">
+
+        
+        </script>
+        <script>
+             let subMenu=document.getElementById("subMenu");
+          
+          function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+          }
+        </script>
 </body>
 
 </html>

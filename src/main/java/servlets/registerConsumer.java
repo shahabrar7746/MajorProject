@@ -37,10 +37,14 @@ public class registerConsumer extends HttpServlet {
 		String password = request.getParameter("password");
 		String location = request.getParameter("location");
 		String email = request.getParameter("email");
+		String pincode = request.getParameter("pincode");
 		pushDb pdb = new pushDb();
 		try {
-			if(pdb.registerConsumer(name, password, email, location)) {
+			if(pdb.registerConsumer(name, password, email, location,pincode)) {
 				//forward request to landing pages.
+			
+				RequestDispatcher dispatch = request.getRequestDispatcher("afterLogin.jsp");
+				dispatch.forward(request, response);
 				
 			}else {
 			//code if entered email exists in system or Db.

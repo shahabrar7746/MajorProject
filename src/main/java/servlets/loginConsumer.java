@@ -32,9 +32,9 @@ public class loginConsumer extends HttpServlet{
 				//forward req. if user exists to landing page.
 				
 		request.setAttribute("consumerId", Login.getConsumerId());
-				RequestDispatcher dispatch = request.getRequestDispatcher("afterLogin.jsp");
-	
-			dispatch.forward(request, response);
+		RequestDispatcher dispatch = request.getRequestDispatcher("afterLogin.jsp");
+		
+		dispatch.forward(request, response);
 		      
 			} else { 
 				if(isExist.equals("password is wrong")) {

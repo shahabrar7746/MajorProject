@@ -7,12 +7,12 @@ import java.util.Random;
 
 public class pushDb {
 	
-	 public boolean registerConsumer(String name,String password, String email,String location) throws SQLException, ClassNotFoundException {
+	 public boolean registerConsumer(String name,String password, String email,String location,String pincode) throws SQLException, ClassNotFoundException {
 		 if(!new common().isNew(email)) {
 			 return false;
 		 }
 		 Connection con = common.connect();
-		 String query = "insert into consumerDetails(consumerId,password,email,registrationDate,consumerLocation,name) values(?,?,?,?,?,?);";
+		 String query = "insert into consumerDetails(consumerId,password,email,registrationDate,consumerLocation,name,pincode) values(?,?,?,?,?,?,?);";
 		
 		 PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, common.generateconsumerId());
@@ -21,6 +21,7 @@ public class pushDb {
 		ps.setString(4, common.date());
 		ps.setString(5, location);
 		ps.setString(6, name);
+		ps.setString(7, pincode);
 		ps.execute();
 		
 		 return true;
