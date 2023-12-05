@@ -1,0 +1,13 @@
+runtime: java11
+
+instance_class: F2
+
+env_variables:
+  YOUR_ENV_VARIABLE: 'your_value'
+
+handlers:
+- url: /MajorProject
+  static_files: MajorProject/index.html
+  upload: MajorProject/index.html
+- url: /MajorProject/*
+  static_dir: MajorProject
