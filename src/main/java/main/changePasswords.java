@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class changePasswords {
 	public void changePasswordConsumer(String password,String mail) throws ClassNotFoundException, SQLException {
 		Connection con = common.connect();
-		String query = "update consumerDetails set password = ? where email = ?";
+		String query = "update consumerdetails set password = ? where email = ?";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, password);
 		ps.setString(2, mail);
@@ -15,7 +15,7 @@ public class changePasswords {
 	}
 	public void changePasswordSeller(String password,String sellerId) throws ClassNotFoundException, SQLException {
 		Connection con = common.connect();
-		String query = "update sellerDetails set password = ? where sellerId = ?";
+		String query = "update sellerdetails set password = ? where sellerId = ?";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, password);
 		ps.setString(2, sellerId);

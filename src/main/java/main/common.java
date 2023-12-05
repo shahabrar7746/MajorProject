@@ -10,26 +10,29 @@ import java.time.LocalDate;
 import java.util.Random;
 
 public class common  {
-private final static String dburl = "\"mysql://uizlnplnxgqkaypn:MnzZfwjnKSml5hlmMv8B@bwpcz0vlb7xoowjt5all-mysql.services.clever-cloud.com:3306/bwpcz0vlb7xoowjt5all\"\r\n"
-		+ "";
-
-final static String dbPort = "3306//";
+private final static String dburl = "jdbc:mysql://mysql-240f0ee5-com-24local.a.aivencloud.com:10102/?user=avnadmin";
+		
+private static  String host = "mysql-240f0ee5-com-24local.a.aivencloud.com";
+final static String dbPort = "10102";
  final static String dbName = "bwpcz0vlb7xoowjt5all";
 final static String dbUser = "uizlnplnxgqkaypn";
-private final static String dbPassword = "MnzZfwjnKSml5hlmMv8B";
-final static String dbDriver = "com.mysql.cj.jdbc.Driver";
+private final static String dbPassword = "AVNS_6OvSkrnvhZDB6mguwKX";
+static String user = "avnadmin";
+final static String dbDriver = "com.mysql.jdbc.Driver";
 private static Connection con = null;
 static Connection connect() throws SQLException, ClassNotFoundException {
 	Class.forName(dbDriver);
 	if(con == null || con.isClosed()) {
-	con = DriverManager.getConnection("jdbc:mysql://uizlnplnxgqkaypn:MnzZfwjnKSml5hlmMv8B@bwpcz0vlb7xoowjt5all-mysql.services.clever-cloud.com:3306/bwpcz0vlb7xoowjt5all");
-	return con;
+       con =  DriverManager.getConnection("jdbc:mysql://" + host + ":" + dbPort + "/" + dbName + "?sslmode=require", user, dbPassword);
+
+		return con;
 	}
 	if (!con.isValid(0)) {
 	    // Reconnect to the database.
 	    con.close();
-		con = DriverManager.getConnection("jdbc:mysql://uizlnplnxgqkaypn:MnzZfwjnKSml5hlmMv8B@bwpcz0vlb7xoowjt5all-mysql.services.clever-cloud.com:3306/bwpcz0vlb7xoowjt5all");
-	  }
+	       con =  DriverManager.getConnection("jdbc:mysql://" + host + ":" + dbPort + "/" + dbName + "?sslmode=require", user, dbPassword);
+
+	}
 	return con;
 }
 public static String consumerId = null;
@@ -64,7 +67,7 @@ public static String date() {
 }
 public  String consumerName = null;
 public boolean isNew(String email) throws SQLException, ClassNotFoundException {
-	String query = "Select consumerId,name    from  consumerDetails where email = ?";
+	String query = "SELECT consumerID,name FROM bwpcz0vlb7xoowjt5all.consumerdetails where email = ?";
 	PreparedStatement ps = common.connect().prepareStatement(query);
 	ps.setString(1, email);
 	ResultSet rs = ps.executeQuery();
@@ -100,7 +103,7 @@ public boolean isNew(String email,String table) throws SQLException, ClassNotFou
 public String getSellerId(String mail) throws ClassNotFoundException, SQLException {
 	Connection con = connect();
 	String sellerId = null;
-	String query = "select sellerId from sellerDetails where email = ?;";
+	String query = "select sellerId from sellerdetails where email = ?;";
 	PreparedStatement ps = con.prepareStatement(query);
 	ps.setString(1, mail);
 	ResultSet rs = ps.executeQuery();
@@ -112,7 +115,8 @@ public String getSellerId(String mail) throws ClassNotFoundException, SQLExcepti
 public String getConsumerId(String mail) throws ClassNotFoundException, SQLException {
 	String id = null;
 	Connection con = connect();
-	String query = " select consumerId from consumerDetails where email = ?";
+	String query = "SELECT consumerID FROM bwpcz0vlb7xoowjt5all.consumerdetails where email = ?";
+
 	PreparedStatement ps = con.prepareStatement(query);
 	ps.setString(1, mail);
 	ResultSet rs = ps.executeQuery();
@@ -130,7 +134,7 @@ public String generateOTP() {
      }
      return otp.toString();
 }
-public static void main(String [] args) throws SQLException {
-
-}
+public static void main(String [] args) throws SQLException, ClassNotFoundException {
+Connection con = connect();
+} 
 }

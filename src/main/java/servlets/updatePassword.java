@@ -40,7 +40,7 @@ public class updatePassword extends HttpServlet {
 			email = request.getParameter("sellerMail");
 			
 			try {
-				if(fun.isNew(email, "sellerDetails")) {
+				if(fun.isNew(email, "sellerdetails")) {
 				response.sendRedirect("errorPages/forgotPassword.jsp");
 				}else {
 					String otp = fun.generateOTP();

@@ -12,7 +12,7 @@ public class pushDb {
 			 return false;
 		 }
 		 Connection con = common.connect();
-		 String query = "insert into consumerDetails(consumerId,password,email,registrationDate,consumerLocation,name,pincode) values(?,?,?,?,?,?,?);";
+		 String query = "insert into consumerdetails(consumerId,password,email,registrationDate,consumerLocation,name,pincode) values(?,?,?,?,?,?,?);";
 		
 		 PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, common.generateconsumerId());
@@ -31,7 +31,7 @@ public class pushDb {
 			 return false;
 		 }
 			 Connection con = common.connect();
-String query = "insert into sellerDetails(sellerId,pinCOde,sellerName,phoneNumber,serviceName,password,state,shopNumber,area,registrationDate,serviceType,email) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+String query = "insert into sellerdetails(sellerId,pinCOde,sellerName,phoneNumber,serviceName,password,state,shopNumber,area,registrationDate,serviceType,email) values (?,?,?,?,?,?,?,?,?,?,?,?);";
 PreparedStatement ps = con.prepareStatement(query);
 ps.setString(1, common.generateSellerId());
 ps.setString(2, pincode);
