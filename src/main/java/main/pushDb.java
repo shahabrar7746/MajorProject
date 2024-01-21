@@ -27,11 +27,11 @@ public class pushDb {
 		 return true;
 	 }
 	 public boolean registerSeller(String fullName,String businessName,String mail,String phNumber,String shopNumber,String Area,String pincode,String state,String serviceType, String password) throws ClassNotFoundException, SQLException {
-		 if(!new common().isNew(mail, "sellerDetails")) {
+		 if(!new common().isNew(mail, "sellerdetails")) {
 			 return false;
 		 }
 			 Connection con = common.connect();
-String query = "insert into sellerdetails(sellerId,pinCOde,sellerName,phoneNumber,serviceName,password,state,shopNumber,area,registrationDate,serviceType,email) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+String query = "insert into sellerdetails(seller_id,pin_code,seller_name,phone_number,service_name,password,state,shop_number,area,registration_date,service_type,email) values (?,?,?,?,?,?,?,?,?,?,?,?);";
 PreparedStatement ps = con.prepareStatement(query);
 ps.setString(1, common.generateSellerId());
 ps.setString(2, pincode);

@@ -67,13 +67,13 @@ public static String date() {
 }
 public  String consumerName = null;
 public boolean isNew(String email) throws SQLException, ClassNotFoundException {
-	String query = "SELECT consumerID,name FROM bwpcz0vlb7xoowjt5all.consumerdetails where email = ?";
+	String query = "SELECT consumer_id ,name FROM bwpcz0vlb7xoowjt5all.consumerdetails where email = ?";
 	PreparedStatement ps = common.connect().prepareStatement(query);
 	ps.setString(1, email);
 	ResultSet rs = ps.executeQuery();
 	String ans = null;
 	while(rs.next()) {
-	 ans = rs.getString("consumerId");
+	 ans = rs.getString("consumer_id");
 	 consumerName = rs.getString("name");
 	}
 	rs.close();
@@ -85,14 +85,14 @@ public boolean isNew(String email) throws SQLException, ClassNotFoundException {
 
 public String sellerName = null;
 public boolean isNew(String email,String table) throws SQLException, ClassNotFoundException {
-	String query = "Select sellerId,sellerName  from " + table + "  where email = ?";
+	String query = "Select seller_id,seller_name  from " + table + "  where email = ?";
 	PreparedStatement ps = common.connect().prepareStatement(query);
 	ps.setString(1, email);
 	ResultSet rs = ps.executeQuery();
 	String ans = null;
 	while(rs.next()) {
-	 ans = rs.getString("sellerId");
-	 sellerName = rs.getString("sellername");
+	 ans = rs.getString("seller_id");
+	 sellerName = rs.getString("seller_name");
 	}
 	rs.close();
 	ps.close();
@@ -103,25 +103,25 @@ public boolean isNew(String email,String table) throws SQLException, ClassNotFou
 public String getSellerId(String mail) throws ClassNotFoundException, SQLException {
 	Connection con = connect();
 	String sellerId = null;
-	String query = "select sellerId from sellerdetails where email = ?;";
+	String query = "select seller_id from sellerdetails where email = ?;";
 	PreparedStatement ps = con.prepareStatement(query);
 	ps.setString(1, mail);
 	ResultSet rs = ps.executeQuery();
 	while(rs.next()) {
-		sellerId = rs.getString("sellerId");
+		sellerId = rs.getString("seller_id");
 	}
 	return sellerId;
 }
 public String getConsumerId(String mail) throws ClassNotFoundException, SQLException {
 	String id = null;
 	Connection con = connect();
-	String query = "SELECT consumerID FROM bwpcz0vlb7xoowjt5all.consumerdetails where email = ?";
+	String query = "SELECT consumer_id FROM bwpcz0vlb7xoowjt5all.consumerdetails where email = ?";
 
 	PreparedStatement ps = con.prepareStatement(query);
 	ps.setString(1, mail);
 	ResultSet rs = ps.executeQuery();
 	while(rs.next()) {
-		id = rs.getString("consumerId");
+		id = rs.getString("consumer_id");
 	}
 	return id;
 }

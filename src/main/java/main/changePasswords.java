@@ -15,7 +15,7 @@ public class changePasswords {
 	}
 	public void changePasswordSeller(String password,String sellerId) throws ClassNotFoundException, SQLException {
 		Connection con = common.connect();
-		String query = "update sellerdetails set password = ? where sellerId = ?";
+		String query = "update sellerdetails set password = ? where seller_id = ?";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, password);
 		ps.setString(2, sellerId);

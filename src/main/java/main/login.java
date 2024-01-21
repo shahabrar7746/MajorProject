@@ -13,13 +13,13 @@ public class login {
 		}
 		Connection con = common.connect();
 		
-		String Query = "select consumerId,name from consumerdetails where email = ? AND password = ?;";
+		String Query = "select consumer_id,name from consumerdetails where email = ? AND password = ?;";
 		PreparedStatement ps = con.prepareStatement(Query);
 		ps.setString(1, email);
 		ps.setString(2, password);
 		ResultSet rs = ps.executeQuery();
 		while(rs.next()) {
-			consumerId = rs.getString("consumerId");
+			consumerId = rs.getString("consumer_id");
 			consumerName = rs.getString("name");
 		}
 		if(consumerId == null ) {
