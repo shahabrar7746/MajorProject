@@ -18,7 +18,8 @@ final static String dbPort = "10102";
 final static String dbUser = "avnadmin";
 private final static String dbPassword = "AVNS_6OvSkrnvhZDB6mguwKX";
 static String user = "avnadmin";
-final static String dbDriver = "com.mysql.jdbc.Driver";
+final static String dbDriver = "com.mysql.cj.jdbc.Driver"
+		+ "";
 private static Connection con = null;
 static Connection connect() throws SQLException, ClassNotFoundException {
 	Class.forName(dbDriver);

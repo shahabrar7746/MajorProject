@@ -12,7 +12,7 @@ public class pushDb {
 			 return false;
 		 }
 		 Connection con = common.connect();
-		 String query = "insert into consumerdetails(consumerId,password,email,registrationDate,consumerLocation,name,pincode) values(?,?,?,?,?,?,?);";
+		 String query = "insert into consumerdetails(consumer_id,password,email,registration_date,consumer_location,name,pin_code) values(?,?,?,?,?,?,?);";
 		
 		 PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, common.generateconsumerId());

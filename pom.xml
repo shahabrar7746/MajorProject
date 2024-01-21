@@ -58,12 +58,9 @@
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 
 <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.30</version>
-</dependency>
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+
+
 <dependency>
     <groupId>javax.mail</groupId>
     <artifactId>mail</artifactId>
@@ -71,7 +68,11 @@
 </dependency>
 <!-- https://mvnrepository.com/artifact/pentaho-library/libxml -->
 <!-- https://mvnrepository.com/artifact/org.pentaho.reporting.library/libxml -->
-
+<dependency>
+   <groupId>mysql</groupId>
+   <artifactId>mysql-connector-java</artifactId>
+   <version>8.0.33</version>
+</dependency>
 
   </dependencies>
   <build>
