@@ -14,6 +14,7 @@ import main.changePasswords;
 
 /**
  * Servlet implementation class changePassword
+ * Farhan shaikh
  */
 public class changePassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
