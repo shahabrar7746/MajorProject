@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.Random;
 
 public class common  {
+	public final static String apiServer = "http://localhost:8081/";
 private final static String dburl = "jdbc:mysql://mysql-240f0ee5-com-24local.a.aivencloud.com:10102/?user=avnadmin";
 		
 private static  String host = "mysql-240f0ee5-com-24local.a.aivencloud.com";
@@ -137,5 +138,6 @@ public String generateOTP() {
 }
 public static void main(String [] args) throws SQLException, ClassNotFoundException {
 Connection con = connect();
+System.out.println(con.isClosed());
 } 
 }
