@@ -2,6 +2,8 @@
  * 
  */
 
+ let id = document.getElementById("consumerId").value;
+
     let subMenu=document.getElementById("subMenu");
           
           function toggleMenu(){
@@ -9,6 +11,17 @@
           }
           
 
+ 
+ 
+ function search(){
+	
+  var query = document.getElementById("searchQuery").value;
+    localStorage.setItem("consumerId", id);
+	  localStorage.setItem("query",query);
+ window.location.href = "services.html"
+ 
+ 
+ }
  
  function changeLocation(){
 	 let location = prompt("Please enter your new location");
@@ -33,3 +46,5 @@
    alert("unknown error occured");
   });
  }
+ 
+ 

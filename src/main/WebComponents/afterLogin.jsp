@@ -26,10 +26,10 @@
     </div>
     <div class="search-container">
       <div class="search-icon">
-        <img src="/images/search.svg" alt="">
+        <img src="./images/search.svg" alt="" onclick = "search()">
         <i class="fa fa-search"></i>
       </div>
-      <input type="text" class="search-input" placeholder="Search...">
+      <input type="text" class="search-input" placeholder="Search..." id = "searchQuery">
     </div>
     <!--login-->
     <img src="assets/images/user.png " class="user-pic" onclick="toggleMenu()">
